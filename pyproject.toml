@@ -1,0 +1,14 @@
+[project]
+name = "agent2agent"
+version = "0.1.0"
+description = "Customer Support chatbot <-A2A-> Product Catalog server"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai",
+    "google-adk[a2a]",
+    "python-dotenv",
+    "uvicorn"
+]
+
+[tool.setuptools]
+py-modules = ["customer_support", "product_catalog"]
