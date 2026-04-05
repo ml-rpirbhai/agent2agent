@@ -95,7 +95,7 @@ product_catalog_agent = LlmAgent(model=Gemini(model=MODEL_NAME, retry_options=RE
                                  tools=[get_product_info])
 
 # Start product_catalog_agent app on localhost
-product_catalog_agent_app = to_a2a(product_catalog_agent, port=PRODUCT_CATALOG_PORT)
+product_catalog_a2a_app = to_a2a(product_catalog_agent, port=PRODUCT_CATALOG_PORT)
 
 
 def main() -> None:
@@ -105,7 +105,7 @@ def main() -> None:
     logger.info(f"Agent card will be at http://{PRODUCT_CATALOG_HOST}:{PRODUCT_CATALOG_PORT}{AGENT_CARD_WELL_KNOWN_PATH}")
 
     # Host product_catalog_agent app on localhost
-    uvicorn.run(product_catalog_agent_app, port=PRODUCT_CATALOG_PORT)
+    uvicorn.run(product_catalog_a2a_app, port=PRODUCT_CATALOG_PORT)
 
 
 if __name__ == "__main__":
