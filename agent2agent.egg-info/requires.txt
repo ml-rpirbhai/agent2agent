@@ -1,4 +1,0 @@
-google-genai
-google-adk[a2a]
-python-dotenv
-uvicorn
