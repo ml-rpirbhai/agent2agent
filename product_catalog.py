@@ -104,8 +104,8 @@ def main() -> None:
     logger.info(f"Starting Product Catalog A2A on localhost:{PRODUCT_CATALOG_PORT}")
     logger.info(f"Agent card will be at http://{PRODUCT_CATALOG_HOST}:{PRODUCT_CATALOG_PORT}{AGENT_CARD_WELL_KNOWN_PATH}")
 
-    # Host product_catalog_agent app on localhost
-    uvicorn.run(product_catalog_a2a_app, port=PRODUCT_CATALOG_PORT)
+    # Host product_catalog_agent app. Listen for requests from all interfaces
+    uvicorn.run(product_catalog_a2a_app, host='0.0.0.0', port=PRODUCT_CATALOG_PORT)
 
 
 if __name__ == "__main__":
