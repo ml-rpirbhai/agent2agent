@@ -1,0 +1,20 @@
+# 1. Use an official Python base image (slim versions are smaller)
+FROM python:3.12-slim
+
+# 2. Set the working directory inside the container
+WORKDIR /app
+
+# 3. Copy requirements first to leverage Docker's caching
+COPY requirements.txt .
+
+# 4. Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 5. Copy the application code
+COPY product_catalog.py .
+
+# 6. Expose the port your app runs on
+EXPOSE 8001
+
+# 7. Command to run the application
+CMD ["python", "product_catalog.py"]

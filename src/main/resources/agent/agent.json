@@ -1,0 +1,18 @@
+{
+  "capabilities": {"streaming": true},
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["application/json"],
+  "description": "External vendor's catalog agent that provides product information and availability. Uses get_product_info to look up price, stock, and specs.",
+  "name": "product_catalog_agent",
+  "skills": [
+    {
+      "id": "product_catalog_lookup",
+      "name": "Product catalog lookup",
+      "description": "Look up products by name from the vendor catalog including price, availability, and specifications.",
+      "tags": ["catalog", "products", "inventory", "pricing"]
+    }
+  ],
+  "preferredTransport": "JSONRPC",
+  "url": "http://localhost:8001",
+  "version": "1.0.0"
+}

@@ -1,0 +1,15 @@
+docker build -f Dockerfile.product_catalog -t product_catalog:v1 .
+docker images
+
+docker run -p 8001:8001 localhost/product_catalog:v1
+docker ps
+docker logs 41a9cce93dd6
+
+*Test product_catalog app is working *inside* the container*
+We cannot use curl (because the container image is Debian slim):
+podman exec -it 41a9cce93dd6 curl http://127.0.0.1:8001/.well-known/agent-card.json
+So, we'll use python instead of curl:
+podman exec -it 41a9cce93dd6 python3 -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8001/.well-known/agent-card.json').read().decode())"
+
+*Stop the container*
+docker stop
